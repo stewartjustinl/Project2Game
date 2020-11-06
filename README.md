@@ -9,7 +9,6 @@
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Turn-by-turn Algorithm](#algorithm)
 ---
 ## Description
 
