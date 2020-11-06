@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: baf16f344a2a042729abfaa77e19b407
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 6809 Chargen
+  fontNames:
+  - 6809 Chargen
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a36b1c123536d4166a7163750587b9f0, type: 3}
+  - {fileID: 12800000, guid: 9cd57c15c767e48aaa162f208a7bb313, type: 3}
+  - {fileID: 12800000, guid: 9be00c06a8f194c4eac85db65fa40e2c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
