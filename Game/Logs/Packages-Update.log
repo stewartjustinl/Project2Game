@@ -33,7 +33,11 @@ The following packages were updated:
 The following packages were removed:
   com.unity.package-manager-ui@2.1.2
 
+<<<<<<< HEAD
 === Fri Nov 20 19:14:38 2020
+=======
+=== Fri Nov 20 18:03:42 2020
+>>>>>>> f24265db... working on mapping level spawn
 
 Packages were changed.
 Update Mode: updateDependencies
