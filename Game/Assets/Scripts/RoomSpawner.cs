@@ -19,7 +19,6 @@ public class RoomSpawner : MonoBehaviour
 
         //spawn rooms with delay
         Invoke("Spawn",0.5f);
-        Debug.Log("Finishe building level");
     }
 
     void Spawn()
