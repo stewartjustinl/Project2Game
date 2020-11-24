@@ -16,14 +16,20 @@ public class PlayerController : MonoBehaviour
     public Vector3 projectileOffset;
     public bool hasPowerup;
     public GameObject powerupIndicator;
-    public int health; 
+    public int health;
+
+    private AudioSource playerAudio;
+    public AudioClip pewPew;
+    public AudioClip ouch;
+    public AudioClip woosh;
+    public AudioClip newItem;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
         hasPowerup = false;
-        health = 3; 
     }
 
     // Update is called once per frame
@@ -44,11 +50,13 @@ public class PlayerController : MonoBehaviour
         {
             // Launch a projectile from the player
             Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
+            playerAudio.PlayOneShot(pewPew);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
+            playerAudio.PlayOneShot(woosh);
         }
     }
 
@@ -61,6 +69,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerupCountdownRoutine());
             powerupIndicator.gameObject.SetActive(true);
             Debug.Log("Player picked up " + other.gameObject);
+            playerAudio.PlayOneShot(newItem);
         }
 
         if (other.CompareTag("Food"))
@@ -68,6 +77,7 @@ public class PlayerController : MonoBehaviour
             health += 1;
             Destroy(other.gameObject);
             Debug.Log("Player ate " + other.gameObject);
+            playerAudio.PlayOneShot(newItem);
         }
 
         if (other.CompareTag("Projectile"))
@@ -75,6 +85,7 @@ public class PlayerController : MonoBehaviour
             health -= 1;
             Destroy(other.gameObject);
             Debug.Log("Player was hit by " + other.gameObject);
+            playerAudio.PlayOneShot(ouch);
 
             if (health == 0)
             {
