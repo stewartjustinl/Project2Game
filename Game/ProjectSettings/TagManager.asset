@@ -10,6 +10,8 @@ TagManager:
   - Projectile
   - Enemy
   - Wall
+  - Powerup
+  - Food
   layers:
   - Default
   - TransparentFX
