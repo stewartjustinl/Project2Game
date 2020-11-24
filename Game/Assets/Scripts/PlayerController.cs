@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -49,11 +50,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
         }
-
-        if (health < 1)
-        {
-            Debug.Log("Player has died");
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,6 +75,11 @@ public class PlayerController : MonoBehaviour
             health -= 1;
             Destroy(other.gameObject);
             Debug.Log("Player was hit by " + other.gameObject);
+
+            if (health == 0)
+            {
+                SceneManager.LoadScene(1); 
+            }
         }
     }
 
