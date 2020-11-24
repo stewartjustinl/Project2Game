@@ -12,13 +12,15 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     public float dashSpeed = 20f; 
     public GameObject projectilePrefab;
-    public Vector3 projectileOffset; 
+    public Vector3 projectileOffset;
+    public bool hasPowerup;
+    public GameObject powerupIndicator;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>(); 
-
+        playerRb = GetComponent<Rigidbody>();
+        hasPowerup = false; 
     }
 
     // Update is called once per frame
@@ -45,5 +47,23 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse); 
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerupCountdownRoutine());
+            powerupIndicator.gameObject.SetActive(true);
+        }
+    }
+
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(7);
+        hasPowerup = false;
+        powerupIndicator.gameObject.SetActive(false);
     }
 }
