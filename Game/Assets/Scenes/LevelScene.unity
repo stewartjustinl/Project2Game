@@ -128,6 +128,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655242303, guid: cf2ce68a8829e42ce9c195891ecd3e0e, type: 3}
+      propertyPath: Powerup
+      value: 
+      objectReference: {fileID: 4625272285955752100, guid: 28644743b3b03214c8357a5ea4b03c43,
+        type: 3}
+    - target: {fileID: 655242303, guid: cf2ce68a8829e42ce9c195891ecd3e0e, type: 3}
+      propertyPath: Food
+      value: 
+      objectReference: {fileID: 6737253907573262811, guid: 9a92029b90774aa4fab2176ebd671ac5,
+        type: 3}
     - target: {fileID: 5116662160147505280, guid: cf2ce68a8829e42ce9c195891ecd3e0e,
         type: 3}
       propertyPath: m_Name
@@ -1313,6 +1323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food
       objectReference: {fileID: 0}
+    - target: {fileID: 6737253907573262811, guid: 9a92029b90774aa4fab2176ebd671ac5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a92029b90774aa4fab2176ebd671ac5, type: 3}
 --- !u!1001 &4805632658086249419
@@ -1400,6 +1415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Powerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625272285955752100, guid: 28644743b3b03214c8357a5ea4b03c43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625272285955988612, guid: 28644743b3b03214c8357a5ea4b03c43,
         type: 3}
