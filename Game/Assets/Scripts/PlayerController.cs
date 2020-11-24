@@ -24,12 +24,19 @@ public class PlayerController : MonoBehaviour
     public AudioClip woosh;
     public AudioClip newItem;
 
+    public float dashCD;
+    public float primaryCD;
+    public bool canShoot;
+    public bool canDash;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
         hasPowerup = false;
+        canDash = true;
+        canShoot = true;
     }
 
     // Update is called once per frame
@@ -46,17 +53,21 @@ public class PlayerController : MonoBehaviour
         // transform.position = transform.position + (totalDelta * Time.deltaTime * speed);
         playerRb.AddForce(totalDelta * speed, ForceMode.Force);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
             // Launch a projectile from the player
             Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
             playerAudio.PlayOneShot(pewPew);
+            canShoot = false;
+            StartCoroutine(PrimaryCountdownRoutine());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
             playerAudio.PlayOneShot(woosh);
+            canDash = false;
+            StartCoroutine(DashCountdownRoutine());
         }
     }
 
@@ -99,5 +110,22 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         powerupIndicator.gameObject.SetActive(false);
+    }
+
+    IEnumerator PrimaryCountdownRoutine()
+    {
+        float timeToWait = primaryCD;
+        if (hasPowerup)
+        {
+            timeToWait /= 2;
+        }
+        yield return new WaitForSeconds(timeToWait);
+        canShoot = true;
+    }
+
+    IEnumerator DashCountdownRoutine()
+    {
+        yield return new WaitForSeconds(dashCD);
+        canDash = true; ;
     }
 }

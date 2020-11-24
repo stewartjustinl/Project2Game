@@ -447,6 +447,10 @@ MonoBehaviour:
   ouch: {fileID: 0}
   woosh: {fileID: 0}
   newItem: {fileID: 0}
+  dashCD: 0
+  primaryCD: 0
+  canShoot: 0
+  canDash: 0
 --- !u!54 &296638284
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1090,6 +1094,21 @@ PrefabInstance:
         type: 3}
       propertyPath: health
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: primaryCD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: dashCD
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: canDash
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1960588934707684448, guid: b4bee252d590946dd9dc474c869631e7,
         type: 3}
