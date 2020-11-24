@@ -644,30 +644,31 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4008699633445290954, guid: e6160780d44465f4f9d8831aefeffbd2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6160780d44465f4f9d8831aefeffbd2, type: 3}
---- !u!1 &903262994 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1960588934707684444, guid: b4bee252d590946dd9dc474c869631e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1968946820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &903263000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1960588934707684450, guid: b4bee252d590946dd9dc474c869631e7,
     type: 3}
   m_PrefabInstance: {fileID: 1968946820}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &903263001
-MonoBehaviour:
+--- !u!1 &918401134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6737253907573262811, guid: 9a92029b90774aa4fab2176ebd671ac5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2234395518797109487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &918401135
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903262994}
+  m_GameObject: {fileID: 918401134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a5c3008ef42084289e353290808094, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 0.6907087, y: 0.2954241, z: 0.32987684}
+  m_Center: {x: 0.0000013411045, y: 0.14771205, z: -0.000000007450581}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,11 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c664de9fed6a744a049b34f0c6c2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   player: {fileID: 20438582}
-=======
-  player: {fileID: 903262994}
->>>>>>> jake
   offset: {x: 0, y: 20, z: 0}
 --- !u!1 &1066332303 stripped
 GameObject:
@@ -916,11 +913,7 @@ MonoBehaviour:
   - {fileID: 2365432848177662969, guid: e93229f419758c94d974bfdfcc094ca3, type: 3}
   - {fileID: 8126827566811421711, guid: 525b6c97a982fff459c6a8d207d2808d, type: 3}
   items: []
-<<<<<<< HEAD
   boss: {fileID: 6025534060793648296, guid: f141ccfac05c7b54c95f142a9acc85f3, type: 3}
-=======
-  boss: {fileID: 0}
->>>>>>> jake
   closedRoom: {fileID: 6045817304305225952, guid: f60ea0af75d27f64c9658380fadfa25d,
     type: 3}
   doubleSpawn: {fileID: 1952747339159834120, guid: 17e2d7cc008735443a3a5a355f5b3fab,

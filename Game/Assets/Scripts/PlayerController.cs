@@ -64,21 +64,21 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(PowerupCountdownRoutine());
             powerupIndicator.gameObject.SetActive(true);
-            Debug.Log("Player picked up" + other.gameObject);
+            Debug.Log("Player picked up " + other.gameObject);
         }
 
         if (other.CompareTag("Food"))
         {
             health += 1;
             Destroy(other.gameObject);
-            Debug.Log("Player ate" + other.gameObject);
+            Debug.Log("Player ate " + other.gameObject);
         }
 
         if (other.CompareTag("Projectile"))
         {
             health -= 1;
             Destroy(other.gameObject);
-            Debug.Log("Player was hit by" + other.gameObject);
+            Debug.Log("Player was hit by " + other.gameObject);
         }
     }
 
