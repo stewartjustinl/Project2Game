@@ -531,7 +531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: JAKE PETERSON
+  m_Text: JAKE PETERSEN
 --- !u!222 &65839567
 CanvasRenderer:
   m_ObjectHideFlags: 0
