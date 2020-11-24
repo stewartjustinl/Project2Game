@@ -24,6 +24,7 @@ public class hitDetectorEnemy : MonoBehaviour
     	if(other.tag == "Projectile")
     	{
     		Debug.Log ("Collision");
+            Destroy(other.gameObject);
     		health = health - 1;
     	}
     }
