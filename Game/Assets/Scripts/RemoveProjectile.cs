@@ -19,7 +19,7 @@ public class RemoveProjectile : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Wall"){
-    		Destroy(gameObject);
+    		  Destroy(gameObject);
         }
     }
 }
