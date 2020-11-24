@@ -12,7 +12,9 @@ public class RoomTemplates : MonoBehaviour
     public GameObject boss;
 
     public GameObject closedRoom;
+    public GameObject doubleSpawn;
     public List<GameObject> roomsList;
+    public int roomCount = 10;
 
     public int count;
     public float waitTime;
