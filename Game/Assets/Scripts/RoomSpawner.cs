@@ -11,7 +11,6 @@ public class RoomSpawner : MonoBehaviour
     public int direction;
     private Vector3 vectorTest;
     private Vector3 position;
-    public GameObject doubleSpawn;
     private bool spawned = false;
     // Start is called before the first frame update
     void Start()
@@ -62,7 +61,6 @@ public class RoomSpawner : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        Instantiate(templates.doubleSpawn, position, Quaternion.identity);
         Destroy(gameObject);
         Debug.Log("Spawn Point Destroyed");
     }

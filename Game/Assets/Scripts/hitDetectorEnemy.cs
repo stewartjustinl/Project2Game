@@ -23,7 +23,7 @@ public class hitDetectorEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == 0) {
+        if (health <= 0) {
             
             EnemyDropChance = rand.Next(0,101);
             PowerupChoice = rand.Next(0,2);
