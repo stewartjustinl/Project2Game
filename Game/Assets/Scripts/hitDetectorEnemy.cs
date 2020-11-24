@@ -5,6 +5,8 @@ using UnityEngine;
 public class hitDetectorEnemy : MonoBehaviour
 {
     public int health;
+    public Vector3 position;
+    public GameObject teleporter;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,17 @@ public class hitDetectorEnemy : MonoBehaviour
     void Update()
     {
         if (health == 0) {
+            //get the position to spawn an item or something
+            position = transform.position;
+
+            //remove the enemy
     		Destroy(gameObject);
+
+            //if the enemy is a boss, spawn teleporter to next level
+            if (gameObject.name == "Boss Enemy"){
+                Debug.Log("Spawning teleporter");
+                Instantiate(teleporter, position, Quaternion.identity);
+            }
         }
         
     }

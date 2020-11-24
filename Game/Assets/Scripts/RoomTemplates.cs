@@ -9,6 +9,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
     public GameObject[] items;
+    public GameObject boss;
 
     public GameObject closedRoom;
     public List<GameObject> roomsList;
@@ -28,7 +29,7 @@ public class RoomTemplates : MonoBehaviour
             float y = -2;
             float z = roomsList[roomsList.Count - 1].transform.position.z;
             spawnPosition = new Vector3(x,y,z);
-            Instantiate(nextLevel, spawnPosition, Quaternion.identity);
+            Instantiate(boss, spawnPosition, Quaternion.identity);
             Debug.Log("Boss Spawned");
             nextLevelSpawned = true;
         } else {
