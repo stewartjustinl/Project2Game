@@ -25,7 +25,7 @@ public class RoomSpawner : MonoBehaviour
 
     void Spawn()
     {
-        if (spawned == false && templates.roomsList.Count <= 10) {
+        if (spawned == false) {
             vectorTest = new Vector3(transform.position.x, 0, transform.position.z);
             switch (direction)
             {
@@ -59,34 +59,8 @@ public class RoomSpawner : MonoBehaviour
             Debug.Log("Spawn set to true");
             spawned = true;
         }
-        //when we hit the room cap, only spawn closed rooms
-        else if (spawned == false && templates.roomsList.Count == 10) {
-            vectorTest = new Vector3(transform.position.x, 0, transform.position.z);
-            switch (direction)
-            {
-                case 1:
-                    //spawn room with bottom door
-                    Instantiate(templates.bottomRooms[0], vectorTest, Quaternion.identity);
-                    break;
-                case 2:
-                    //spawn room with top door
-                    Instantiate(templates.topRooms[5], vectorTest, Quaternion.identity);
-                    break;
-                case 3:
-                    //spawn room with left door
-                    Instantiate(templates.leftRooms[0], vectorTest, Quaternion.identity);
-                    break;
-                case 4:
-                    //spawn room with right door
-                    Instantiate(templates.rightRooms[2], vectorTest, Quaternion.identity);
-                    break;
-                default:
-                    break;
-            }
-            Debug.Log("Spawn set to true");
-            spawned = true;
-        }
     }
+
     void OnTriggerEnter(Collider other){
         Instantiate(templates.doubleSpawn, position, Quaternion.identity);
         Destroy(gameObject);
