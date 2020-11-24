@@ -11,7 +11,6 @@
 - [Usage](#usage)
 ---
 ## Description
-test
 
 ---
 ## Codebase
