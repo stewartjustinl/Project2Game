@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Player ate " + other.gameObject);
             playerAudio.PlayOneShot(newItem);
+            PlayerStats.Instance.Heal(health); // adds to heart health
         }
 
         if (other.CompareTag("Projectile"))
@@ -97,7 +98,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Player was hit by " + other.gameObject);
             playerAudio.PlayOneShot(ouch);
-
+            PlayerStats.Instance.TakeDamage(1); // removed heart health
             if (health == 0)
             {
                 SceneManager.LoadScene(1); 
