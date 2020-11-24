@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
   speed: 20
-  projectileOffset: 1
+  projectileOffset: 1.5
 --- !u!114 &3667359060677803973
 MonoBehaviour:
   m_ObjectHideFlags: 0

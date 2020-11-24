@@ -16,14 +16,27 @@ public class PlayerController : MonoBehaviour
     public Vector3 projectileOffset;
     public bool hasPowerup;
     public GameObject powerupIndicator;
-    public int health; 
+    public int health;
+
+    private AudioSource playerAudio;
+    public AudioClip pewPew;
+    public AudioClip ouch;
+    public AudioClip woosh;
+    public AudioClip newItem;
+
+    public float dashCD;
+    public float primaryCD;
+    public bool canShoot;
+    public bool canDash;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
         hasPowerup = false;
-        health = 3; 
+        canDash = true;
+        canShoot = true;
     }
 
     // Update is called once per frame
@@ -40,15 +53,21 @@ public class PlayerController : MonoBehaviour
         // transform.position = transform.position + (totalDelta * Time.deltaTime * speed);
         playerRb.AddForce(totalDelta * speed, ForceMode.Force);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
         {
             // Launch a projectile from the player
             Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
+            playerAudio.PlayOneShot(pewPew);
+            canShoot = false;
+            StartCoroutine(PrimaryCountdownRoutine());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
+            playerAudio.PlayOneShot(woosh);
+            canDash = false;
+            StartCoroutine(DashCountdownRoutine());
         }
     }
 
@@ -61,6 +80,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PowerupCountdownRoutine());
             powerupIndicator.gameObject.SetActive(true);
             Debug.Log("Player picked up " + other.gameObject);
+            playerAudio.PlayOneShot(newItem);
         }
 
         if (other.CompareTag("Food"))
@@ -68,6 +88,7 @@ public class PlayerController : MonoBehaviour
             health += 1;
             Destroy(other.gameObject);
             Debug.Log("Player ate " + other.gameObject);
+            playerAudio.PlayOneShot(newItem);
         }
 
         if (other.CompareTag("Projectile"))
@@ -75,6 +96,7 @@ public class PlayerController : MonoBehaviour
             health -= 1;
             Destroy(other.gameObject);
             Debug.Log("Player was hit by " + other.gameObject);
+            playerAudio.PlayOneShot(ouch);
 
             if (health == 0)
             {
@@ -88,5 +110,22 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         powerupIndicator.gameObject.SetActive(false);
+    }
+
+    IEnumerator PrimaryCountdownRoutine()
+    {
+        float timeToWait = primaryCD;
+        if (hasPowerup)
+        {
+            timeToWait /= 2;
+        }
+        yield return new WaitForSeconds(timeToWait);
+        canShoot = true;
+    }
+
+    IEnumerator DashCountdownRoutine()
+    {
+        yield return new WaitForSeconds(dashCD);
+        canDash = true; ;
     }
 }

@@ -211,6 +211,102 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1968946820}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &20438583
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20438582}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &103559143
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +458,14 @@ MonoBehaviour:
   hasPowerup: 0
   powerupIndicator: {fileID: 0}
   health: 0
+  pewPew: {fileID: 0}
+  ouch: {fileID: 0}
+  woosh: {fileID: 0}
+  newItem: {fileID: 0}
+  dashCD: 0
+  primaryCD: 0
+  canShoot: 0
+  canDash: 0
 --- !u!54 &296638284
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1047,6 +1151,46 @@ PrefabInstance:
         type: 3}
       propertyPath: dashSpeed
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: woosh
+      value: 
+      objectReference: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: newItem
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: ouch
+      value: 
+      objectReference: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: pewPew
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: primaryCD
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: dashCD
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960588934707684446, guid: b4bee252d590946dd9dc474c869631e7,
+        type: 3}
+      propertyPath: canDash
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1960588934707684448, guid: b4bee252d590946dd9dc474c869631e7,
         type: 3}
