@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip woosh;
     public AudioClip newItem;
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
