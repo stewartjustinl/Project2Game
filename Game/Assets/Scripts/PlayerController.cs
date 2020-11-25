@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool canShoot;
     public bool canDash;
     public bool hasPowerup;
+    public bool playerDead;
     public int health;
     public Vector3 projectileOffset;
     // Game Objects
@@ -31,7 +32,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip ouch;
     public AudioClip woosh;
     public AudioClip newItem;
-
+    private Animator m_Animator;
+    private int healthLeft = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,39 +44,92 @@ public class PlayerController : MonoBehaviour
         hasPowerup = false;
         canDash = true;
         canShoot = true;
+        m_Animator = gameObject.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Move Player based on User Input
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        horizontalDelta = Camera.main.transform.right * horizontalInput * Time.deltaTime * speed;
-        horizontalDelta.y = 0;
-        verticalInput = Input.GetAxisRaw("Vertical");
-        verticalDelta = Camera.main.transform.up * verticalInput * Time.deltaTime * speed;
-        verticalDelta.y = 0;
-        Vector3 totalDelta = (horizontalDelta + verticalDelta);
-        totalDelta.Normalize();
-        playerRb.AddForce(totalDelta * speed, ForceMode.Force);
+        
+        
+            // Move Player based on User Input
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            horizontalDelta = Camera.main.transform.right * horizontalInput * Time.deltaTime * speed;
+            horizontalDelta.y = 0;
+            verticalInput = Input.GetAxisRaw("Vertical");
+            verticalDelta = Camera.main.transform.up * verticalInput * Time.deltaTime * speed;
+            verticalDelta.y = 0;
+            Vector3 totalDelta = (horizontalDelta + verticalDelta);
+            totalDelta.Normalize();
+            if (!playerDead)
+            {
+                playerRb.AddForce(totalDelta * speed, ForceMode.Force);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
-        {
-            // Launch a projectile from the player
-            Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
-            playerAudio.PlayOneShot(pewPew);
-            canShoot = false;
-            StartCoroutine(PrimaryCountdownRoutine());
-        }
+            //Animation code for Forward and backward movement
+            
+            if ( (Input.GetKeyDown(KeyCode.W)  && !playerDead) || (Input.GetKeyDown(KeyCode.S)  && !playerDead)|| (Input.GetKeyDown(KeyCode.UpArrow)  && !playerDead) || (Input.GetKeyDown(KeyCode.DownArrow)  && !playerDead) )
+            {
+                m_Animator.SetTrigger("MoveForward");
+            }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            // Moves the player quickly in the direction they were moving
-            playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
-            playerAudio.PlayOneShot(woosh);
-            canDash = false;
-            StartCoroutine(DashCountdownRoutine());
-        }
+            if ( ((Input.GetKeyUp(KeyCode.W)) && (!playerDead) )||
+                ( (Input.GetKeyUp(KeyCode.S))  && (!playerDead) )|| 
+                ( (Input.GetKeyUp(KeyCode.UpArrow))  && (!playerDead)) || 
+                ( (Input.GetKeyUp(KeyCode.DownArrow)) && (!playerDead) ) )
+            {
+                m_Animator.SetTrigger("Idle1");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////
+            
+            //Animation code for Right movement
+            if ( (Input.GetKeyDown(KeyCode.A)  && !playerDead) || (Input.GetKeyDown(KeyCode.LeftArrow)  && !playerDead) )
+            {
+                m_Animator.SetTrigger("StrafeRight");
+            }
+            if ( (Input.GetKeyUp(KeyCode.A)  && !playerDead) || (Input.GetKeyUp(KeyCode.LeftArrow)  && !playerDead) )
+            {
+               m_Animator.SetTrigger("Idle1");
+            }
+            ///////////////////////////////////////////////////////////////////////////////
+
+            //Animation code for Right movement
+            if ( (Input.GetKeyDown(KeyCode.D)  && !playerDead) || (Input.GetKeyDown(KeyCode.RightArrow)  && !playerDead) )
+            {
+                m_Animator.SetTrigger("StrafeLeft");
+            }
+            if ( (Input.GetKeyUp(KeyCode.A) ) || (Input.GetKeyUp(KeyCode.LeftArrow) ) )
+            {
+               m_Animator.SetTrigger("Idle1");
+            }
+            ///////////////////////////////////////////////////////////////////////////////
+            
+
+            if ((Input.GetKeyDown(KeyCode.Mouse0)) && (canShoot) && (!playerDead) )
+            {
+                // Launch a projectile from the player
+                Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
+                playerAudio.PlayOneShot(pewPew);
+                canShoot = false;
+                StartCoroutine(PrimaryCountdownRoutine());
+                m_Animator.SetTrigger("Fire");
+            }
+            
+
+            if ((Input.GetKeyDown(KeyCode.LeftShift)) && (canDash) && (!playerDead) )
+            {
+                // Moves the player quickly in the direction they were moving
+                playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
+                playerAudio.PlayOneShot(woosh);
+                canDash = false;
+                StartCoroutine(DashCountdownRoutine());
+            }
+        
+            
+        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,6 +147,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Food"))
         {
             health += 1;
+            healthLeft++;
             Destroy(other.gameObject);
             Debug.Log("Player ate " + other.gameObject);
             playerAudio.PlayOneShot(newItem);
@@ -101,19 +157,45 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Projectile") || other.CompareTag("Enemy"))
         {
             health -= 1;
+            healthLeft--;
+            if (healthLeft > 0)
+            {
+                m_Animator.SetTrigger("Hit2");
+                playerAudio.PlayOneShot(ouch);
+            }
+            if(healthLeft == 0){
+                
+                m_Animator.SetTrigger("Dead1");
+                playerDead = true;
+                 StartCoroutine(loadNewScene()) ;
+                 //SceneManager.LoadScene(3);
+
+            }
             // Don't destroy the object if it is an enemy
             if (other.CompareTag("Projectile"))
             {
                 Destroy(other.gameObject);
             }
             Debug.Log("Player was hit by " + other.gameObject);
-            playerAudio.PlayOneShot(ouch);
+            
+            
             PlayerStats.Instance.TakeDamage(1); // removed heart health
+<<<<<<< Updated upstream
             if (health == 0)
             {
                 SceneManager.LoadScene(3); 
             }
+=======
+            
+>>>>>>> Stashed changes
         }
+
+    }
+    
+    IEnumerator loadNewScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(3);
     }
 
     IEnumerator PowerupCountdownRoutine()
