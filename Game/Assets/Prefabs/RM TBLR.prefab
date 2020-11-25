@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
-  doubleSpawn: {fileID: 0}
 --- !u!65 &3429470010118439522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 4
-  doubleSpawn: {fileID: 0}
 --- !u!65 &851545080658031422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -152,36 +150,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &5150263465710572313
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6917628950233101346}
-  m_Layer: 0
-  m_Name: NavMesh
-  m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6917628950233101346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5150263465710572313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8208205494170840005}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6749414175214192439
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 2
-  doubleSpawn: {fileID: 0}
 --- !u!65 &8458377040095703011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -300,7 +267,6 @@ Transform:
   - {fileID: 6747186290274026708}
   - {fileID: 3618155906753861233}
   - {fileID: 8412917967039024485}
-  - {fileID: 6917628950233101346}
   - {fileID: 511026335015112149}
   - {fileID: 1132102245027812354}
   m_Father: {fileID: 0}
@@ -393,7 +359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
-  doubleSpawn: {fileID: 0}
 --- !u!65 &5515572342913432475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -573,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 1700017225463974524, guid: e491e37785c677546b7df941ed1b8300,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1700017225463974524, guid: e491e37785c677546b7df941ed1b8300,
         type: 3}
@@ -653,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 4590191940437601947, guid: bd0ccf095946ba9478c9d3b948862758,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4590191940437601947, guid: bd0ccf095946ba9478c9d3b948862758,
         type: 3}

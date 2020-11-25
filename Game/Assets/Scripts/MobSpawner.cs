@@ -25,10 +25,10 @@ public class MobSpawner : MonoBehaviour
                 roomRangePos = 40.0f;
                 rand = Random.Range(roomRangeNeg,roomRangePos);
                 rand2 = Random.Range(roomRangeNeg,roomRangePos);
-                position = new Vector3(rand,0,rand2);
+                position = new Vector3(rand,-2.49f,rand2);
 
                 //spawnt the enemy
-                Instantiate(enemy, position, Quaternion.Euler(new Vector3(0,0,180)));
+                Instantiate(enemy, position, Quaternion.Euler(new Vector3(0,180,0)));
             }
         }
     }

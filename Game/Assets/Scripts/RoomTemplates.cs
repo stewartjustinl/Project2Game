@@ -10,6 +10,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] rightRooms;
     public GameObject[] items;
     public GameObject boss;
+    public bool bossSpawned;
 
     public GameObject closedRoom;
     public GameObject doubleSpawn;
@@ -23,7 +24,7 @@ public class RoomTemplates : MonoBehaviour
     private Vector3 spawnPosition;
 
     void Update(){
-        if (waitTime <= 0 && nextLevelSpawned == false){
+        if (waitTime <= 0 && bossSpawned == false){
             //once wait is over, spawn boss in last room
             //make a vector for instantiation
             float x = roomsList[roomsList.Count - 1].transform.position.x;
@@ -36,7 +37,7 @@ public class RoomTemplates : MonoBehaviour
             //instantiate the boss enemy game object
             Instantiate(boss, spawnPosition, Quaternion.identity);
             Debug.Log("Boss Spawned");
-            nextLevelSpawned = true;
+            bossSpawned = true;
 
         } else {
             //decrement wait time
