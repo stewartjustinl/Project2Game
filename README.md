@@ -5,10 +5,8 @@
 
 ---
 - [Description](#description)
-- [Codebase](#codebase)
-- [Dependencies](#dependencies)
-- [Installation](#installation)
 - [Usage](#usage)
+- [License](#license)
 ---
 ## Description
 
