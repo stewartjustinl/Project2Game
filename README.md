@@ -60,8 +60,7 @@ If you would like to change how any of the gameplay works, or experiment with th
 
 Gameplay | Relevant files
 ------------ | -------------
-Dungeon Spawn | [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs)
-and [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs)
+Dungeon Spawn | [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs) and [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs)
 Enemy Spawn | [MobSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/MobSpawner.cs)
 Enemy aggro/pathing/health | [EnemyController](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/EnemyController.cs)
 Texture Loading | [Floor Texture](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/FloorTexture.cs)
