@@ -5,35 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player Model Rigidbody
     private Rigidbody playerRb;
+    // User Input
     public float horizontalInput;
     public Vector3 horizontalDelta;
     public float verticalInput;
     public Vector3 verticalDelta;
+    // Player Parameters
     public float speed = 10.0f;
-    public float dashSpeed = 20f; 
-    public GameObject projectilePrefab;
-    public Vector3 projectileOffset;
+    public float dashSpeed = 20f;
+    public float dashCD;
+    public float primaryCD;
+    public bool canShoot;
+    public bool canDash;
     public bool hasPowerup;
-    public GameObject powerupIndicator;
     public int health;
-
+    public Vector3 projectileOffset;
+    // Game Objects
+    public GameObject projectilePrefab;
+    public GameObject powerupIndicator;
+    // Audio 
     private AudioSource playerAudio;
     public AudioClip pewPew;
     public AudioClip ouch;
     public AudioClip woosh;
     public AudioClip newItem;
 
-    public float dashCD;
-    public float primaryCD;
-    public bool canShoot;
-    public bool canDash;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get the components we need later 
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
+        // Initialize Player State 
         hasPowerup = false;
         canDash = true;
         canShoot = true;
@@ -42,6 +49,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Move Player based on User Input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         horizontalDelta = Camera.main.transform.right * horizontalInput * Time.deltaTime * speed;
         horizontalDelta.y = 0;
@@ -50,7 +58,6 @@ public class PlayerController : MonoBehaviour
         verticalDelta.y = 0;
         Vector3 totalDelta = (horizontalDelta + verticalDelta);
         totalDelta.Normalize();
-        // transform.position = transform.position + (totalDelta * Time.deltaTime * speed);
         playerRb.AddForce(totalDelta * speed, ForceMode.Force);
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
@@ -64,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
+            // Moves the player quickly in the direction they were moving
             playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
             playerAudio.PlayOneShot(woosh);
             canDash = false;
@@ -95,6 +103,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Projectile") || other.CompareTag("Enemy"))
         {
             health -= 1;
+            // Don't destroy the object if it is an enemy
             if (other.CompareTag("Projectile"))
             {
                 Destroy(other.gameObject);
