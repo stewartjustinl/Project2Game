@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ShootAtPlayer : MonoBehaviour
 {
-    private GameObject player;
+    [SerializeField]
+    Transform playerPosition;
+    
     public GameObject projectile;
+    public GameObject player;
     private Rigidbody enemyRb;
 
     private float primaryCD = 3.0f;
@@ -13,13 +16,12 @@ public class ShootAtPlayer : MonoBehaviour
     private bool canShoot;
     public float projectileOffset;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player 2");
+        playerPosition = GameObject.FindGameObjectWithTag ("Player").transform;
         StartCoroutine(PrimaryCountdownRoutine());
     }
 
@@ -30,11 +32,13 @@ public class ShootAtPlayer : MonoBehaviour
 
         if (directionToShoot.magnitude < range && canShoot)
         {
-            //Shoot at Player
-            Instantiate(projectile, transform.position + directionToShoot * projectileOffset, 
-                        Quaternion.LookRotation(directionToShoot));
-            canShoot = false;
-            StartCoroutine(PrimaryCountdownRoutine());
+            if(RaycastSightCheck()){
+                //Shoot at Player
+                Instantiate(projectile, transform.position + directionToShoot * projectileOffset, 
+                            Quaternion.LookRotation(directionToShoot));
+                canShoot = false;
+                StartCoroutine(PrimaryCountdownRoutine());
+            }
         }
     }
 
@@ -42,5 +46,29 @@ public class ShootAtPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(primaryCD);
         canShoot = true;
+    }
+
+    bool RaycastSightCheck()
+    {
+        RaycastHit hit;
+        if (playerPosition != null)
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 500)) {
+                if ((hit.collider.gameObject != null) && (hit.collider.gameObject.tag == "Player")) {
+                    Debug.Log("Player spotted for shoot check");
+                    return true;
+                }
+                else {
+                    Debug.Log("View obstructed by "+ hit.collider.name);
+                    return false;
+                }
+            }
+            else {
+                Debug.Log("Raycast didnt hit anything");
+                return false;
+            }
+        }
+        Debug.Log("Player position is null");
+        return false;
     }
 }

@@ -33,31 +33,33 @@ public class NPCMove : MonoBehaviour
 
     private void SetDestination()
     {
-        //get the target vector
+        //get the target vector position
         Vector3 targetVector = player.transform.position;
 
         if (player.transform.position == null)
         {
             Debug.Log("Could not get " + player.gameObject.tag);
-        } 
-        else {
-            RaycastHit hit;
-            if (player != null)
-            {
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 500)) {
-                    if ((hit.collider.gameObject != null) && (hit.collider.gameObject.tag == "Player")) {
-                        Debug.Log("Player spotted");
-                        _navMeshAgent.SetDestination(targetVector);
-                        _navMeshAgent.updateRotation = false;
-                        transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+        }
+        if(inRange == false){
+            else {
+                RaycastHit hit;
+                if (player != null)
+                {
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 500)) {
+                        if ((hit.collider.gameObject != null) && (hit.collider.gameObject.tag == "Player")) {
+                            Debug.Log("Player spotted");
+                            _navMeshAgent.SetDestination(targetVector);
+                            _navMeshAgent.updateRotation = false;
+                            transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+                        }
+                        else {
+                            Debug.Log("View obstructed by "+ hit.collider.name);
+                            Vector3 targetDir = player.position - transform.position;
+                        }
                     }
                     else {
-                        Debug.Log("View obstructed by "+ hit.collider.name);
-                        Vector3 targetDir = player.position - transform.position;
+                        Debug.Log("Raycast didnt hit anything");
                     }
-                }
-                else {
-                    Debug.Log("Raycast didnt hit anything");
                 }
             }
         }

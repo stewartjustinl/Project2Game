@@ -21,10 +21,18 @@ public class MobSpawner : MonoBehaviour
 
             if (randInt < 75){
                 //set the spawn location in the room
-                roomRangeNeg = -40.0f;
-                roomRangePos = 40.0f;
+                roomRangeNeg = -15.0f;
+                roomRangePos = 15.0f;
+
+                //roll random number for position in room
                 rand = Random.Range(roomRangeNeg,roomRangePos);
                 rand2 = Random.Range(roomRangeNeg,roomRangePos);
+
+                //offset position to be relative to the room's location
+                rand = rand + transform.position.x;
+                rand2 = rand2 + transform.position.z;
+
+                //set position of the spawn
                 position = new Vector3(rand,-2.49f,rand2);
 
                 //spawnt the enemy
