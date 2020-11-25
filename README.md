@@ -8,6 +8,8 @@
 - [Usage](#usage)
 - [Level Generation](#levelgeneration)
 - [Enemy Pathing](#enemypathing)
+- [Modifications](#modifications)
+- [Texturing](#texturing)
 - [License](#license)
 ---
 ## Description
@@ -44,6 +46,26 @@ an optional component called
 that allows for runtime NavMesh baking. To do so, all you need is to attatch a NavMesh component to the object,
 and have a [script](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/NavMeshBaker.cs) 
 attatched as well that will call BuildNavMesh() on the object.
+
+---
+## Texturing
+
+Currently the walls have a set texture, which can be changed in the prefabs folder. The walls pick a random texture out
+of an assigned material array. Details can be found in [FloorTexure](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/FloorTexture.cs)
+
+---
+## Modifications 
+
+If you would like to change how any of the gameplay works, or experiment with the level, here are some suggestions:
+
+Gameplay | Relevant files
+------------ | -------------
+Dungeon Spawn | [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs)
+and [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs)
+Enemy Spawn | [MobSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/MobSpawner.cs)
+Enemy aggro/pathing/health | [EnemyController](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/EnemyController.cs)
+Texture Loading | [Floor Texture](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/FloorTexture.cs)
+Models/Room prefabs | [Prefabs](https://github.com/stewartjustinl/Project2Game/tree/main/Game/Assets/Prefabs)
 
 ---
 ## License
