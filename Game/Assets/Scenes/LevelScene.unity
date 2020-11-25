@@ -1060,13 +1060,13 @@ MonoBehaviour:
   verticalDelta: {x: 0, y: 0, z: 0}
   speed: 1200
   dashSpeed: 500
-  dashCD: 0
-  primaryCD: 0
+  dashCD: 3
+  primaryCD: 1
   canShoot: 0
   canDash: 0
   hasPowerup: 0
   playerDead: 0
-  health: 0
+  health: 3
   projectileOffset: {x: 0, y: 0, z: 0}
   projectilePrefab: {fileID: 7464589996030391636, guid: 0d04a87ac7179da42b3231fbd2af50ff,
     type: 3}
