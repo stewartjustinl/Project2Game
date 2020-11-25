@@ -92,10 +92,13 @@ public class PlayerController : MonoBehaviour
             PlayerStats.Instance.Heal(health); // adds to heart health
         }
 
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile") || other.CompareTag("Enemy"))
         {
             health -= 1;
-            Destroy(other.gameObject);
+            if (other.CompareTag("Projectile"))
+            {
+                Destroy(other.gameObject);
+            }
             Debug.Log("Player was hit by " + other.gameObject);
             playerAudio.PlayOneShot(ouch);
             PlayerStats.Instance.TakeDamage(1); // removed heart health
