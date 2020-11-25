@@ -37,11 +37,7 @@ public class RoomTemplates : MonoBehaviour
             //instantiate the boss enemy game object
             Instantiate(boss, spawnPosition, Quaternion.identity);
             Debug.Log("Boss Spawned");
-<<<<<<< HEAD
             bossSpawned = true;
-=======
-            nextLevelSpawned = true;
->>>>>>> e12b05fc489b9decfad7bb6cee2de44e8dc17599
 
         } else {
             //decrement wait time
