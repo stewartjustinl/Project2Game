@@ -24,4 +24,4 @@ The game can be played [here]()
 ---
 ## License
 
-See the [LICENSE](LICENSE.md) file for license rights and limitations (GNU GPLv3).
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
