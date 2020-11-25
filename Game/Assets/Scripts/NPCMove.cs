@@ -8,6 +8,7 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     Transform player;
 
+    private float distanceToEnemy;
     private bool inRange;
     private Vector3 targetVector;
 
@@ -37,22 +38,24 @@ public class NPCMove : MonoBehaviour
     private void SetDestination()
     {
         //get the target vector position
-        Vector3 targetVector = player.transform.position;
+        //Vector3 targetVector = player.transform.position;
+        targetVector = Vector3.Lerp(player.transform.position, transform.position, 0.5f);
 
         if (player.transform.position == null)
         {
             Debug.Log("Could not get " + player.gameObject.tag);
         }
         if (true){
-            _navMeshAgent.SetDestination(targetVector);
-            _navMeshAgent.updateRotation = false;
-            transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+            if (distanceToEnemy < 0){
+                _navMeshAgent.SetDestination(targetVector);
+                _navMeshAgent.updateRotation = false;
+                //transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+            }
+            else {
+                _navMeshAgent.SetDestination(targetVector);
+                _navMeshAgent.updateRotation = false;
+                //transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
+            }
         }
     }
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Player") {
-    //        inRange = true;
-    //    }
-    //}
 }
