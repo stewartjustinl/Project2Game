@@ -54,9 +54,6 @@ public class NPCMove : MonoBehaviour
                     else {
                         Debug.Log("View obstructed by "+ hit.collider.name);
                         Vector3 targetDir = player.position - transform.position;
-                        float angle = Vector3.Angle(targetDir, transform.forward);
-                        if (angle < 5.0f)
-                            Debug.Log("Close");
                     }
                 }
                 else {

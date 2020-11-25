@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c21dbe82628c6714ca785fc7f80b5ad9, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1001 &12624254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2076,6 +2076,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RM TBLR
       objectReference: {fileID: 0}
+    - target: {fileID: 7842358143328651888, guid: fce82c367c8ad0b4bb3b7fffdbff1600,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7947467982103211092, guid: fce82c367c8ad0b4bb3b7fffdbff1600,
         type: 3}
       propertyPath: _destination
@@ -2371,6 +2376,7 @@ MonoBehaviour:
   - {fileID: 8126827566811421711, guid: 525b6c97a982fff459c6a8d207d2808d, type: 3}
   items: []
   boss: {fileID: 6025534060793648296, guid: f141ccfac05c7b54c95f142a9acc85f3, type: 3}
+  bossSpawned: 0
   closedRoom: {fileID: 6045817304305225952, guid: f60ea0af75d27f64c9658380fadfa25d,
     type: 3}
   doubleSpawn: {fileID: 1952747339159834120, guid: 17e2d7cc008735443a3a5a355f5b3fab,
