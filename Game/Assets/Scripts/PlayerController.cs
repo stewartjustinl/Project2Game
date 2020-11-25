@@ -15,13 +15,13 @@ public class PlayerController : MonoBehaviour
     // Player Parameters
     public float speed = 10.0f;
     public float dashSpeed = 20f;
-    public float dashCD;
-    public float primaryCD;
+    public float dashCD = 3.0f;
+    public float primaryCD = 1.0f;
     public bool canShoot;
     public bool canDash;
     public bool hasPowerup;
     public bool playerDead;
-    public int health;
+    public int health = 3;
     public Vector3 projectileOffset;
     // Game Objects
     public GameObject projectilePrefab;
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             ///////////////////////////////////////////////////////////////////////////////
             
 
-            if ((Input.GetKeyDown(KeyCode.Mouse0)) && (canShoot) && (!playerDead) )
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !playerDead)
             {
                 // Launch a projectile from the player
                 Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             }
             
 
-            if ((Input.GetKeyDown(KeyCode.LeftShift)) && (canDash) && (!playerDead) )
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !playerDead)
             {
                 // Moves the player quickly in the direction they were moving
                 playerRb.AddForce(totalDelta * dashSpeed, ForceMode.Impulse);
