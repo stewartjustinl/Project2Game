@@ -6,6 +6,7 @@
 ---
 - [Description](#description)
 - [Usage](#usage)
+- [Gameplay](#gameplay)
 - [Level Generation](#levelgeneration)
 - [Enemy Pathing](#enemypathing)
 - [Modifications](#modifications)
@@ -23,6 +24,12 @@ Hosted using the Unity WebGL Package.
 ## Usage 
 
 The game can be played [here](https://veph.itch.io/project-2) using the password 'dev'. You can also download the latest release from [Releases](https://github.com/stewartjustinl/Project2Game/releases).
+
+---
+## Gameplay
+
+The gameplay for our game is a top down shooter with the mouse. Use WASD to move, Mouse to aim, Left click to fire, and shift to dash. Navigate the maze-like level, and collect the hotdogs to restore your
+health after taking damage. Collect the watermelon slices to increase the fire-rate of your weapon.
 
 ---
 ## Level Generation 
