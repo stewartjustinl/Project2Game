@@ -6,11 +6,21 @@ public class RoomSpawner : MonoBehaviour
 {
     //spawn room based on needed direction
     //1 = bottom, 2 = top, 3 = left, 4 = right
+
+    //get reference to RoomTemplates script
     private RoomTemplates templates;
+
+    //random number for room spawn type
     private int rand;
+
+    //direction of room opening
     public int direction;
+
+    //vectors for spawning room in correct location(height)
     private Vector3 vectorTest;
     private Vector3 position;
+
+    //bool for if room has been spawned
     private bool spawned = false;
     // Start is called before the first frame update
     void Start()

@@ -25,16 +25,19 @@ public class RoomTemplates : MonoBehaviour
     void Update(){
         if (waitTime <= 0 && nextLevelSpawned == false){
             //once wait is over, spawn boss in last room
-
             //make a vector for instantiation
             float x = roomsList[roomsList.Count - 1].transform.position.x;
             float y = -2;
             float z = roomsList[roomsList.Count - 1].transform.position.z;
+
+            //set vector for spawn position of boss
             spawnPosition = new Vector3(x,y,z);
+
+            //instantiate the boss enemy game object
             Instantiate(boss, spawnPosition, Quaternion.identity);
             Debug.Log("Boss Spawned");
-            nextLevelSpawned = true;
         } else {
+            //decrement wait time
             waitTime -= Time.deltaTime;
         }
     }
