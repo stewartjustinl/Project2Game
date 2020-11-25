@@ -85,6 +85,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7464589996030391636, guid: 0d04a87ac7179da42b3231fbd2af50ff,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 133816557951470592, guid: 0d04a87ac7179da42b3231fbd2af50ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0d04a87ac7179da42b3231fbd2af50ff, type: 3}

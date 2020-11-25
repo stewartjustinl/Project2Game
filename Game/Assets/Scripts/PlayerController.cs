@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
             PlayerStats.Instance.Heal(health); // adds to heart health
         }
 
-        if (other.CompareTag("Projectile") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             health -= 1;
             healthLeft--;
