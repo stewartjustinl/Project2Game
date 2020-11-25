@@ -10,6 +10,7 @@ public class ShootAtPlayer : MonoBehaviour
     public GameObject projectile;
     public GameObject player;
     private Rigidbody enemyRb;
+    private bool lineOfSight;
 
     private float primaryCD = 3.0f;
     private float range = 10.0f;
@@ -23,6 +24,7 @@ public class ShootAtPlayer : MonoBehaviour
         player = GameObject.Find("Player 2");
         playerPosition = GameObject.FindGameObjectWithTag ("Player").transform;
         StartCoroutine(PrimaryCountdownRoutine());
+        Invoke("RaycastSightCheck", 1f);
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class ShootAtPlayer : MonoBehaviour
 
         if (directionToShoot.magnitude < range && canShoot)
         {
-            if(RaycastSightCheck()){
+            if(true){
                 //Shoot at Player
                 Instantiate(projectile, transform.position + directionToShoot * projectileOffset, 
                             Quaternion.LookRotation(directionToShoot));

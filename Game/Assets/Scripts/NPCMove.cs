@@ -8,6 +8,9 @@ public class NPCMove : MonoBehaviour
     [SerializeField]
     Transform player;
 
+    private bool inRange;
+    private Vector3 targetVector;
+
     NavMeshAgent _navMeshAgent;
 
     // Start is called before the first frame update
@@ -40,28 +43,16 @@ public class NPCMove : MonoBehaviour
         {
             Debug.Log("Could not get " + player.gameObject.tag);
         }
-        if(inRange == false){
-            else {
-                RaycastHit hit;
-                if (player != null)
-                {
-                    if (Physics.Raycast(transform.position, transform.forward, out hit, 500)) {
-                        if ((hit.collider.gameObject != null) && (hit.collider.gameObject.tag == "Player")) {
-                            Debug.Log("Player spotted");
-                            _navMeshAgent.SetDestination(targetVector);
-                            _navMeshAgent.updateRotation = false;
-                            transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
-                        }
-                        else {
-                            Debug.Log("View obstructed by "+ hit.collider.name);
-                            Vector3 targetDir = player.position - transform.position;
-                        }
-                    }
-                    else {
-                        Debug.Log("Raycast didnt hit anything");
-                    }
-                }
-            }
+        if (true){
+            _navMeshAgent.SetDestination(targetVector);
+            _navMeshAgent.updateRotation = false;
+            transform.rotation = Quaternion.LookRotation(_navMeshAgent.velocity.normalized);
         }
     }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Player") {
+    //        inRange = true;
+    //    }
+    //}
 }

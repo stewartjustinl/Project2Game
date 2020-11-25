@@ -109,8 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eef0727debc6b748a2ce7fc6c5976c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPosition: {fileID: 0}
   projectile: {fileID: 707164523631893610, guid: 7daf2883d2463124287a663ca1785a78,
     type: 3}
+  player: {fileID: 0}
   projectileOffset: 2
 --- !u!1001 &4710115891369940381
 PrefabInstance:
