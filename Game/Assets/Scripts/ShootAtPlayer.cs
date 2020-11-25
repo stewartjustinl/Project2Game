@@ -21,7 +21,7 @@ public class ShootAtPlayer : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player 2");
+        player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = GameObject.FindGameObjectWithTag ("Player").transform;
         StartCoroutine(PrimaryCountdownRoutine());
         Invoke("RaycastSightCheck", 1f);

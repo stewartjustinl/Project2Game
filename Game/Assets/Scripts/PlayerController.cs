@@ -163,33 +163,13 @@ public class PlayerController : MonoBehaviour
                 m_Animator.SetTrigger("Hit2");
                 playerAudio.PlayOneShot(ouch);
             }
-            if(healthLeft == 0){
+            if(healthLeft < 1){
                 
                 m_Animator.SetTrigger("Dead1");
                 playerDead = true;
-                 StartCoroutine(loadNewScene()) ;
-                 //SceneManager.LoadScene(3);
-
+                StartCoroutine(loadNewScene()) ;
             }
-            // Don't destroy the object if it is an enemy
-            if (other.CompareTag("Projectile"))
-            {
-                Destroy(other.gameObject);
-            }
-            Debug.Log("Player was hit by " + other.gameObject);
-            
-            
-            PlayerStats.Instance.TakeDamage(1); // removed heart health
-<<<<<<< Updated upstream
-            if (health == 0)
-            {
-                SceneManager.LoadScene(3); 
-            }
-=======
-            
->>>>>>> Stashed changes
         }
-
     }
     
     IEnumerator loadNewScene()
