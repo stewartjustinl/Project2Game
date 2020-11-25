@@ -22,7 +22,7 @@ Hosted using the Unity WebGL Package.
 ---
 ## Usage 
 
-The game can be played [here](https://veph.itch.io/project-2) using the password 'dev'
+The game can be played [here](https://veph.itch.io/project-2) using the password 'dev'. You can also download the latest release from [Releases](https://github.com/stewartjustinl/Project2Game/releases).
 
 ---
 ## Level Generation 
