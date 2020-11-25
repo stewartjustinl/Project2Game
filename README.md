@@ -26,11 +26,9 @@ The game can be played [here](https://veph.itch.io/project-2) using the password
 ## Level Generation 
 
 The ["LevelScene"](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scenes/LevelScene.unity) 
-is a scene in Unity that contains a room responsible for the level generation. The level is spawned from [prefab 
-rooms](https://github.com/stewartjustinl/Project2Game/tree/main/Game/Assets/Prefabs) that have different openings 
+is a scene in Unity that contains a room responsible for the level generation. The level is spawned from [prefab rooms](https://github.com/stewartjustinl/Project2Game/tree/main/Game/Assets/Prefabs) that have different openings 
 in different directions (Left, Right, Top, and Bottom). Each room also contains a gameObject at each room opening 
-with a script that will spawn another room in that location. At each room spawn, the [RoomSpawner](https://github.
-com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs) script picks a random room from the 
+with a script that will spawn another room in that location. At each room spawn, the [RoomSpawner](https://github.com/stewartjustinl/Project2Game/blob/main/Game/Assets/Scripts/RoomSpawner.cs) script picks a random room from the 
 array of rooms that have the correct opening direction, and instantiates it in the location of the spawner 
 gameObject.
 
