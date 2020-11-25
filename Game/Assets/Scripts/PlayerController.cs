@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
             PlayerStats.Instance.TakeDamage(1); // removed heart health
             if (health == 0)
             {
-                SceneManager.LoadScene(1); 
+                SceneManager.LoadScene(3); 
             }
         }
     }

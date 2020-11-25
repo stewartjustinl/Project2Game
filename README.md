@@ -17,7 +17,7 @@ Hosted using the Unity WebGL Package.
 ---
 ## Usage 
 
-The game can be played [here]() 
+The game can be played [here](https://veph.itch.io/project-2) using the password 'dev'
 
 ---
 ## License
