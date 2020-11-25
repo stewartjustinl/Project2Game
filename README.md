@@ -5,25 +5,21 @@
 
 ---
 - [Description](#description)
-- [Codebase](#codebase)
-- [Dependencies](#dependencies)
-- [Installation](#installation)
 - [Usage](#usage)
+- [License](#license)
 ---
 ## Description
 
----
-## Codebase
+A top-down Rogue-like shooter that has been built using the Unity Engine. 
 
----
-## Dependencies
-
----
-## Installation
+Hosted using the Unity WebGL Package. 
 
 ---
 ## Usage 
 
+The game can be played [here]() 
 
 ---
-## Algorithm
+## License
+
+See the [COPYING](COPYING) file for license rights and limitations (GNU GPLv3).
