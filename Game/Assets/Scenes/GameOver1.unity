@@ -481,8 +481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000095367, y: 107.89}
-  m_SizeDelta: {x: 259.15555, y: 82.65933}
+  m_AnchoredPosition: {x: 0.00004673, y: 107.89}
+  m_SizeDelta: {x: 299.9998, y: 82.65933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65839565
 MonoBehaviour:
@@ -1437,8 +1437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.018362, y: -40.977}
-  m_SizeDelta: {x: 259.19223, y: 216.04547}
+  m_AnchoredPosition: {x: -0.00004673, y: -40.977}
+  m_SizeDelta: {x: 299.99973, y: 216.04547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943285503
 MonoBehaviour:
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.78683865, b: 0, a: 1}
+  m_Color: {r: 0.990566, g: 0.9895766, b: 0.98589355, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1481,13 +1481,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 157
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "  - Level Gen\n  - Enemy move/atk\n  - boss move/Atk"
 --- !u!222 &943285505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1623,8 +1623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00006485, y: -41.059}
-  m_SizeDelta: {x: 259.15558, y: 215.83939}
+  m_AnchoredPosition: {x: -0.000083923, y: -41.059}
+  m_SizeDelta: {x: 299.99982, y: 215.83939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1133470400
 MonoBehaviour:
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.78683865, b: 0, a: 1}
+  m_Color: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1667,13 +1667,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 157
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "  - User interface\n  - Animations\n  - Game Audio\n  - Assets"
 --- !u!222 &1133470402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1717,8 +1717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000095367, y: 108}
-  m_SizeDelta: {x: 259.15552, y: 81.90811}
+  m_AnchoredPosition: {x: 0.00004673, y: 108}
+  m_SizeDelta: {x: 299.99988, y: 81.90811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435674354
 MonoBehaviour:
@@ -1811,8 +1811,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00006485, y: 107.9}
-  m_SizeDelta: {x: 259.15558, y: 82.07791}
+  m_AnchoredPosition: {x: -0.00012016, y: 107.9}
+  m_SizeDelta: {x: 299.99976, y: 82.07791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544438884
 MonoBehaviour:
@@ -1886,7 +1886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1718401192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2154,7 +2154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1900471112
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2215,8 +2215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000026703, y: -41.328}
-  m_SizeDelta: {x: 259.1555, y: 215.7764}
+  m_AnchoredPosition: {x: 0.00004673, y: -41.328}
+  m_SizeDelta: {x: 299.9998, y: 215.7764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954282261
 MonoBehaviour:
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.78683865, b: 0, a: 1}
+  m_Color: {r: 0.9622642, g: 0.961303, b: 0.9577252, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2259,13 +2259,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 157
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "  - Projectiles\n  -Powerups\n  -Player audio"
 --- !u!222 &1954282263
 CanvasRenderer:
   m_ObjectHideFlags: 0
