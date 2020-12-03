@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &183671708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1832,13 +1832,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 5.26, y: 17.02, z: -10.55}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -1.22, y: 13.99, z: 8.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720977153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,7 +2039,7 @@ MonoBehaviour:
     type: 3}
   powerupIndicator: {fileID: 6383043683637885783, guid: 6da9d61cdfc53ef49841967b9f67f8a6,
     type: 3}
-  controls: {fileID: 1294663965}
+  controls: {fileID: 183671707}
   levelAudio: {fileID: 1964375928}
   pewPew: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   ouch: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
@@ -3616,7 +3616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1294663966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,7 +5051,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1902261671
 GameObject:
