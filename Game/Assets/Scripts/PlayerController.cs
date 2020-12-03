@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public GameObject powerupIndicator;
     public GameObject controls;
+    public GameObject levelAudio;
     // Audio 
     
     public AudioClip pewPew;
@@ -168,11 +169,13 @@ public class PlayerController : MonoBehaviour
         if (isMuted)
         {
             
+            levelAudio.gameObject.SetActive(true);
             isMuted = false;
+
         }
         else 
         {
-            Time.timeScale = 0;
+            levelAudio.gameObject.SetActive(false);
             isMuted = true;
         }
     }
