@@ -21,22 +21,30 @@ public class PlayerController : MonoBehaviour
     public bool canDash;
     public bool hasPowerup;
     public bool playerDead;
+    //public AudioListener m_Audio;
+    protected bool isPaused = false;
+    protected bool isMuted = false;
+    protected bool isControls = false;
     public int health = 3;
     public Vector3 projectileOffset;
     // Game Objects
     public GameObject projectilePrefab;
     public GameObject powerupIndicator;
+    public GameObject controls;
     // Audio 
-    private AudioSource playerAudio;
+    
     public AudioClip pewPew;
     public AudioClip ouch;
     public AudioClip woosh;
     public AudioClip newItem;
-    private Animator m_Animator;
+    public AudioClip death;
+    public AudioSource playerAudio;
+    private Animator m_Animator; 
     private int healthLeft = 3;
     // Start is called before the first frame update
     void Start()
     {
+        //m_Audio = GetComponent<AudioListener>();
         // Get the components we need later 
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
@@ -51,7 +59,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         
             // Move Player based on User Input
             horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -107,7 +114,7 @@ public class PlayerController : MonoBehaviour
             ///////////////////////////////////////////////////////////////////////////////
             
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !playerDead)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !playerDead && !isPaused)
             {
                 // Launch a projectile from the player
                 Instantiate(projectilePrefab, (transform.position + projectileOffset), projectilePrefab.transform.rotation);
@@ -125,13 +132,67 @@ public class PlayerController : MonoBehaviour
                 playerAudio.PlayOneShot(woosh);
                 canDash = false;
                 StartCoroutine(DashCountdownRoutine());
-            }
+            }  
         
-            
+    
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            pauseGame();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            muteGame();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            showControls();
+        }
         
-
+        
     }
-
+    public void pauseGame()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+        }
+        else 
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+    }
+    public void muteGame()
+    {
+        if (isMuted)
+        {
+            
+            isMuted = false;
+        }
+        else 
+        {
+            Time.timeScale = 0;
+            isMuted = true;
+        }
+    }
+    public void showControls()
+    {
+        if (isControls)
+        {
+            controls.gameObject.SetActive(false);
+            isControls = false;
+            isPaused= true;
+            pauseGame();
+        }
+        else 
+        {
+            controls.gameObject.SetActive(true);
+            isControls = true;
+            isPaused = false;
+            pauseGame();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Powerup"))
@@ -151,10 +212,10 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Player ate " + other.gameObject);
             playerAudio.PlayOneShot(newItem);
-            PlayerStats.Instance.Heal(health); // adds to heart health
+            PlayerStats.Instance.Heal(1); // adds to heart health
         }
 
-        if (other.CompareTag("Enemy"))
+        if ( other.CompareTag("Enemy") || other.CompareTag("Projectile") )
         {
             health -= 1;
             healthLeft--;
@@ -162,11 +223,18 @@ public class PlayerController : MonoBehaviour
             {
                 m_Animator.SetTrigger("Hit2");
                 playerAudio.PlayOneShot(ouch);
+                PlayerStats.Instance.TakeDamage(1);
             }
-            if(healthLeft < 1){
-                
+            if(healthLeft == 0)
+            {
                 m_Animator.SetTrigger("Dead1");
+                playerAudio.PlayOneShot(ouch);
+                PlayerStats.Instance.TakeDamage(1);
                 playerDead = true;
+                if (playerDead)
+                {
+                    StartCoroutine(deathSound()) ;
+                }
                 StartCoroutine(loadNewScene()) ;
             }
         }
@@ -176,6 +244,12 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(3);
+    }
+    
+    IEnumerator deathSound()
+    {
+        yield return new WaitForSeconds(1);
+        playerAudio.PlayOneShot(death);
     }
 
     IEnumerator PowerupCountdownRoutine()
